@@ -62,22 +62,7 @@ mkdir -m 700 "$HOME/.ssh"
 curl -fsSL https://gist.githubusercontent.com/mdanieltg/0fb696bcb58718b28a03b4dcf1f8c2dd/raw/07973de1fc06a9bb73b6d3a7ff023d0e8c80728e/ssh-config | tee -a "$HOME/.ssh/config" > /dev/null
 
 # Configurar Git
-git config --global user.name "Daniel Medrano Huerta"
-git config --global push.default simple
-git config --global alias.br "branch"
-git config --global alias.ca "commit -a"
-git config --global alias.caa "commit --amend"
-git config --global alias.cam "commit -am"
-git config --global alias.ch "checkout"
-git config --global alias.cm "commit -m"
-git config --global alias.co "commit"
-git config --global alias.lg "log --oneline"
-git config --global alias.lgg "log --oneline --graph --decorate"
-git config --global alias.lga "log --oneline --graph --all --decorate"
-git config --global alias.st "status -s"
-git config --global alias.sts "status"
-git config --global core.editor "editor"
-git config --global core.autocrlf input
+curl -fsSL https://gist.githubusercontent.com/mdanieltg/bc983d81cdcbf1340f345eb3fb87d8b7/raw/4464173ce2972f492f43520f200fc53fb6d36287/git-config.sh | sh -
 
 # Configurar Vim
 git clone https://github.com/mdanieltg/vim-profile.git "$HOME/.vim"
