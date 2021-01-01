@@ -23,6 +23,9 @@ sudo apt upgrade -y
 # Instalar herramientas CLI y librerías
 sudo apt install -y git zsh vim curl apt-transport-https build-essential
 
+# Instalar el repositorio de Microsoft
+sudo dpkg -i https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+
 # Actualizar alternativas
 sudo update-aternatives --set editor $(which vim.basic)
 sudo update-aternatives --set x-terminal-emulator $(which terminator)
