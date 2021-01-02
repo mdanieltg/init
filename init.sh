@@ -19,10 +19,6 @@ sudo apt update
 echo -e "${D}${O}Quitar Snap${F}"
 sudo apt autoremove --purge -y snapd
 
-# Agregar el Centro de Software de GNOME
-echo -e "${D}${O}Agregar el Centro de Software de GNOME${F}"
-sudo apt install -y gnome-software
-
 # Actualizar sistema
 echo -e "${D}${O}Actualizar paquetes${F}"
 sudo apt upgrade -y
