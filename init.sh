@@ -34,7 +34,7 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 
 # Obtener llaves
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
+curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -
 curl -sS https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 
 # El buen Node.js
