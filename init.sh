@@ -17,6 +17,7 @@ sudo apt update
 
 # Quitar Snap
 echo -e "${D}${O}Quitar Snap${F}"
+sudo systemctl stop snapd
 sudo apt autoremove --purge -y snapd
 
 # Actualizar sistema
