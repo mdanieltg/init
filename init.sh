@@ -67,7 +67,7 @@ rm Minecraft.deb
 
 # Instalar VS Code
 echo -e "${D}${O}Instalar VS Code${F}"
-wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 -O vscode.deb
+wget -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
 sudo dpkg -i vscode.deb
 rm vscode.deb
 
