@@ -56,7 +56,7 @@ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
 # Instalar software faltante
 echo -e "${D}${O}Instalar software faltante${F}"
-sudo apt install -y dotnet-sdk-5.0 spotify-client nodejs yarn sublime-text meld terminator firefox firefox-locale-es geary
+sudo apt install -y dotnet-sdk-5.0 spotify-client nodejs yarn sublime-text sublime-merge meld terminator firefox firefox-locale-es geary
 
 # Instalar Minecraft
 echo -e "${D}${O}Instalar Minecraft${F}"
