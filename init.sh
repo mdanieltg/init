@@ -64,8 +64,8 @@ wget https://launcher.mojang.com/download/Minecraft.deb
 sudo dpkg -i Minecraft.deb
 rm Minecraft.deb
 
-# Instalar VSCode
-echo -e "${D}${O}Instalar VSCode${F}"
+# Instalar VS Code
+echo -e "${D}${O}Instalar VS Code${F}"
 wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 -O vscode.deb
 sudo dpkg -i vscode
 rm vscode
