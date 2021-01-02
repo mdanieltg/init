@@ -102,8 +102,8 @@ git clone https://github.com/mdanieltg/vim-profile.git "$HOME/.vim"
 ln -sf "$HOME/.vim/vimrc" "$HOME/.vimrc"
 
 
-## Instalar OH-MY-ZSH
-echo -e "${D}${O}Instalar OH-MY-ZSH${F}"
+## Instalar Oh My Zsh
+echo -e "${D}${O}Instalar Oh My Zsh${F}"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
