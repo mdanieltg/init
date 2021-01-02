@@ -35,8 +35,8 @@ rm packages-microsoft-prod.deb
 
 # Actualizar alternativas
 echo -e "${D}${O}Actualizar alternativas${F}"
-sudo update-aternatives --set editor $(which vim.basic)
-sudo update-aternatives --set x-terminal-emulator $(which terminator)
+sudo update-alternatives --set editor $(which vim.basic)
+sudo update-alternatives --set x-terminal-emulator $(which terminator)
 
 # Agregar fuentes a /etc/apt/sources.list.d
 echo -e "${D}${O}Agregar fuentes a /etc/apt/sources.list.d${F}"
