@@ -10,7 +10,7 @@ sudo -v
 # Refrescar la caché de paquetes
 sudo apt update
 
-# Quitar snap
+# Quitar Snap
 sudo apt autoremove --purge -y snapd
 
 # Actualizar sistema
@@ -19,7 +19,7 @@ sudo apt upgrade -y
 # Instalar herramientas CLI y librerías
 sudo apt install -y git zsh vim curl apt-transport-https build-essential
 
-# Instalar el repositorio de Microsoft
+# Instalar el repositorio de .NET
 wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
@@ -38,18 +38,18 @@ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -
 curl -sS https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 
-# El buen Node.js
+# Instalar repositorio de Node.js 14
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
 # Instalar software faltante
 sudo apt install -y dotnet-sdk-5.0 spotify-client nodejs yarn sublime-text meld terminator firefox firefox-locale-es geary
 
-# Maicra
+# Instalar Minecraft
 wget https://launcher.mojang.com/download/Minecraft.deb
 sudo dpkg -i Minecraft.deb
 rm Minecraft.deb
 
-# VSCode
+# Instalar VSCode
 wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 -O vscode.deb
 sudo dpkg -i vscode
 rm vscode
@@ -63,21 +63,23 @@ sudo apt autoremove --purge
 
 
 ## Configuraciones personales
+
+# Cambiar shell a Zsh
 chsh -s $(which zsh)
 
-# SSH config
+# Importar configuración SSH
 mkdir -m 700 "$HOME/.ssh"
 curl -fsSL https://gist.githubusercontent.com/mdanieltg/0fb696bcb58718b28a03b4dcf1f8c2dd/raw/07973de1fc06a9bb73b6d3a7ff023d0e8c80728e/ssh-config | tee -a "$HOME/.ssh/config" > /dev/null
 
-# Configurar Git
+# Importar configuración de Git
 curl -fsSL https://gist.githubusercontent.com/mdanieltg/bc983d81cdcbf1340f345eb3fb87d8b7/raw/4464173ce2972f492f43520f200fc53fb6d36287/git-config.sh | sh -
 
-# Configurar Vim
+# Importar configuración de Vim
 git clone https://github.com/mdanieltg/vim-profile.git "$HOME/.vim"
 ln -sf "$HOME/.vim/vimrc" "$HOME/.vimrc"
 
 
-## OHMYZ.SH
+## Instalar OH-MY-ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
