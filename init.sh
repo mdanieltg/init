@@ -27,12 +27,6 @@ sudo apt upgrade -y
 echo -e "${D}${O}Instalar herramientas CLI y librerías${F}"
 sudo apt install -y git zsh vim curl apt-transport-https build-essential
 
-# Instalar el repositorio de .NET
-echo -e "${D}${O}Instalar el repositorio de .NET${F}"
-wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
-rm packages-microsoft-prod.deb
-
 # Actualizar alternativas
 echo -e "${D}${O}Actualizar alternativas${F}"
 sudo update-alternatives --set editor $(which vim.basic)
@@ -49,6 +43,12 @@ echo -e "${D}${O}Obtener llaves PGP${F}"
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -
 curl -sS https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+
+# Instalar el repositorio de .NET
+echo -e "${D}${O}Instalar el repositorio de .NET${F}"
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
 
 # Instalar repositorio de Node.js 14
 echo -e "${D}${O}Instalar repositorio de Node.js 14${F}"
