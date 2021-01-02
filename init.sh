@@ -1,8 +1,5 @@
 #!/bin/bash
 
-### NO UTILIZAR, NO HA SIDO PROBADO
-### NO NOT USE, HASN'T BEEN TESTED
-
 if [ $UID -eq 0 ]; then
 	echo 'No debes ejecutarme con privilegios elevados o como root'
 fi
