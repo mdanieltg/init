@@ -50,6 +50,11 @@ wget https://launcher.mojang.com/download/Minecraft.deb
 sudo dpkg -i Minecraft.deb
 rm Minecraft.deb
 
+# VSCode
+wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 -O vscode.deb
+sudo dpkg -i vscode
+rm vscode
+
 # Arreglar dependencias incumplidas
 sudo apt install -f
 
