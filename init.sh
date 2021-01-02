@@ -11,8 +11,7 @@ sudo -v
 sudo apt update
 
 # Quitar snap
-sudo apt purge -y snapd
-sudo apt autoremove --purge
+sudo apt autoremove --purge -y snapd
 
 # Actualizar sistema
 sudo apt upgrade -y
