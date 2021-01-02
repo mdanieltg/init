@@ -21,7 +21,9 @@ sudo apt upgrade -y
 sudo apt install -y git zsh vim curl apt-transport-https build-essential
 
 # Instalar el repositorio de Microsoft
-sudo dpkg -i https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
 
 # Actualizar alternativas
 sudo update-aternatives --set editor $(which vim.basic)
@@ -44,7 +46,9 @@ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt install -y dotnet-sdk-5.0 spotify-client nodejs yarn sublime-text meld terminator firefox firefox-locale-es geary
 
 # Maicra
-sudo dpkg -i https://launcher.mojang.com/download/Minecraft.deb
+wget https://launcher.mojang.com/download/Minecraft.deb
+sudo dpkg -i Minecraft.deb
+rm Minecraft.deb
 
 # Arreglar dependencias incumplidas
 sudo apt install -f
