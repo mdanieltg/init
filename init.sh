@@ -73,7 +73,7 @@ rm vscode.deb
 
 # Arreglar dependencias incumplidas
 echo -e "${D}${O}Arreglar dependencias incumplidas (si existen)${F}"
-sudo apt install -f
+sudo apt install -f -y
 
 # Limpiar
 echo -e "${D}${O}Limpiar${F}"
