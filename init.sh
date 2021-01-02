@@ -67,8 +67,8 @@ rm Minecraft.deb
 # Instalar VS Code
 echo -e "${D}${O}Instalar VS Code${F}"
 wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 -O vscode.deb
-sudo dpkg -i vscode
-rm vscode
+sudo dpkg -i vscode.deb
+rm vscode.deb
 
 # Arreglar dependencias incumplidas
 echo -e "${D}${O}Arreglar dependencias incumplidas (si existen)${F}"
