@@ -86,7 +86,7 @@ echo -e "${D}${O}Configuraciones personales${F}"
 
 # Cambiar shell a Zsh
 echo -e "${D}${O}Cambiar shell a Zsh${F}"
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh) $USER
 
 # Importar configuración SSH
 echo -e "${D}${O}Importar configuración SSH${F}"
