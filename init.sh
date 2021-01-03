@@ -77,8 +77,8 @@ sudo apt install -f -y
 
 # Limpiar
 echo -e "${D}${O}Limpiar${F}"
-sudo apt clean
 sudo apt autoremove --purge
+sudo apt clean
 
 
 ## Configuraciones personales
