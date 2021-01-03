@@ -24,9 +24,9 @@ sudo apt autoremove --purge -y snapd
 echo -e "${D}${O}Actualizar paquetes${F}"
 sudo apt upgrade -y
 
-# Instalar herramientas CLI y librerías
-echo -e "${D}${O}Instalar herramientas CLI y librerías${F}"
-sudo apt install -y git zsh vim curl apt-transport-https build-essential
+# Instalar software base
+echo -e "${D}${O}Instalar software base${F}"
+sudo apt install -y git zsh vim curl apt-transport-https build-essential meld terminator firefox firefox-locale-es thunderbird thunderbird-locale-es
 
 # Actualizar alternativas
 echo -e "${D}${O}Actualizar alternativas${F}"
@@ -55,9 +55,9 @@ rm packages-microsoft-prod.deb
 echo -e "${D}${O}Instalar repositorio de Node.js 14${F}"
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
-# Instalar software faltante
-echo -e "${D}${O}Instalar software faltante${F}"
-sudo apt install -y dotnet-sdk-5.0 spotify-client nodejs yarn sublime-text sublime-merge meld terminator firefox firefox-locale-es thunderbird thunderbird-locale-es
+# Instalar software extra
+echo -e "${D}${O}Instalar software extra${F}"
+sudo apt install -y dotnet-sdk-5.0 spotify-client nodejs yarn sublime-text sublime-merge
 
 # Instalar Minecraft
 echo -e "${D}${O}Instalar Minecraft${F}"
