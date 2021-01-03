@@ -24,11 +24,6 @@ sudo apt autoremove --purge -y snapd
 echo -e "${D}${O}Instalar software base${F}"
 sudo apt install -y curl apt-transport-https
 
-# Actualizar alternativas
-echo -e "${D}${O}Actualizar alternativas${F}"
-sudo update-alternatives --set editor $(which vim.basic)
-sudo update-alternatives --set x-terminal-emulator $(which terminator)
-
 # Agregar fuentes a /etc/apt/sources.list.d
 echo -e "${D}${O}Agregar fuentes a /etc/apt/sources.list.d${F}"
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
@@ -79,6 +74,11 @@ sudo apt upgrade -y
 echo -e "${D}${O}Limpiar${F}"
 sudo apt autoremove --purge
 sudo apt clean
+
+# Actualizar alternativas
+echo -e "${D}${O}Actualizar alternativas${F}"
+sudo update-alternatives --set editor $(which vim.basic)
+sudo update-alternatives --set x-terminal-emulator $(which terminator)
 
 
 ## Configuraciones personales
