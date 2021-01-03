@@ -20,10 +20,6 @@ echo -e "${D}${O}Quitar Snap${F}"
 sudo systemctl stop snapd
 sudo apt autoremove --purge -y snapd
 
-# Actualizar sistema
-echo -e "${D}${O}Actualizar paquetes${F}"
-sudo apt upgrade -y
-
 # Instalar software base
 echo -e "${D}${O}Instalar software base${F}"
 sudo apt install -y git zsh vim curl apt-transport-https build-essential meld terminator firefox firefox-locale-es thunderbird thunderbird-locale-es
@@ -74,6 +70,10 @@ rm vscode.deb
 # Arreglar dependencias incumplidas
 echo -e "${D}${O}Arreglar dependencias incumplidas (si existen)${F}"
 sudo apt install -f -y
+
+# Actualizar sistema
+echo -e "${D}${O}Actualizar paquetes${F}"
+sudo apt upgrade -y
 
 # Limpiar
 echo -e "${D}${O}Limpiar${F}"
