@@ -94,11 +94,13 @@ sudo chsh -s $(which zsh) $USER
 # Importar configuración SSH
 echo -e "${D}${O}Importar configuración SSH${F}"
 mkdir -m 700 "$HOME/.ssh"
-curl -fsSL https://gist.githubusercontent.com/mdanieltg/0fb696bcb58718b28a03b4dcf1f8c2dd/raw/07973de1fc06a9bb73b6d3a7ff023d0e8c80728e/ssh-config | tee -a "$HOME/.ssh/config" > /dev/null
+curl -fsSL https://gist.github.com/mdanieltg/0fb696bcb58718b28a03b4dcf1f8c2dd/raw \
+	| tee -a "$HOME/.ssh/config" > /dev/null
 
 # Importar configuración de Git
 echo -e "${D}${O}Importar configuración de Git${F}"
-curl -fsSL https://gist.githubusercontent.com/mdanieltg/bc983d81cdcbf1340f345eb3fb87d8b7/raw/4464173ce2972f492f43520f200fc53fb6d36287/git-config.sh | sh -
+curl -fsSL https://gist.github.com/mdanieltg/bc983d81cdcbf1340f345eb3fb87d8b7/raw \
+	| sh -
 
 # Importar configuración de Vim
 echo -e "${D}${O}Importar configuración de Vim${F}"
