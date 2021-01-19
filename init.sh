@@ -119,3 +119,6 @@ echo -e "${D}${O}Instalar p10k${F}"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 
 #sed -i '' "$HOME/.zshrc"
+
+
+echo "¡Finalizado!"
