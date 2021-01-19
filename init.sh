@@ -143,7 +143,11 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-
 echo -e "${D}${O}Instalar p10k${F}"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 
-#sed -i '' "$HOME/.zshrc"
+
+# Configurar Zsh
+echo -e "${D}${O}Configurar Zsh${F}"
+curl -fsSL https://raw.githubusercontent.com/mdanieltg/zsh-profile/master/zshrc-omz-p10k \
+	| tee "$HOME/.zshrc" > /dev/null
 
 
 echo "¡Finalizado!"
