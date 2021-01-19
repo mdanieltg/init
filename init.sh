@@ -1,4 +1,7 @@
 #!/bin/bash
+CONFIG=$HOME/.config
+LOCAL=$HOME/.local
+
 B='\033[1;36m'
 D='\n\033[0;33m>> '
 O='\033[0;34m'
