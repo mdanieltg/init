@@ -49,6 +49,10 @@ rm packages-microsoft-prod.deb
 echo -e "${D}${O}Instalar repositorio de Node.js 14${F}"
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
+# Refrescar la caché de paquetes
+echo -e "${D}${O}Actualizar la caché de paquetes nuevamente${F}"
+sudo apt update
+
 # Instalar software restante
 echo -e "${D}${O}Instalar software restante${F}"
 sudo apt install -y git zsh vim build-essential meld terminator firefox firefox-locale-es thunderbird thunderbird-locale-es dotnet-sdk-5.0 spotify-client nodejs yarn sublime-text sublime-merge
