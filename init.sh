@@ -14,6 +14,10 @@ fi
 echo -e "${B}sudo${O} para comandos administrativos${F}"
 sudo -v
 
+# Detener el servicio de actualizaciones no supervisadas, ya que puede obstruir la instalación de los paquetes
+echo -e "${D}${O}Deshabilitar las actualizaciones no supervisadas${F}"
+sudo systemctl stop unattended-upgrades.service
+
 # Refrescar la caché de paquetes
 echo -e "${D}${O}Actualizar la caché de paquetes${F}"
 sudo apt update
