@@ -113,16 +113,19 @@ ln -sf "$HOME/.vim/vimrc" "$HOME/.vimrc"
 
 # Importar configuración de Sublime Text
 echo -e "${D}${O}Importar configuración de Sublime Text${F}"
+mkdir -p "$CONFIG/sublime-text-3/Packages/User"
 curl -fsSL https://gist.github.com/mdanieltg/12793d5354d546d4a0b8d31f8cdc4a08/raw \
 	| tee "$CONFIG/sublime-text-3/Packages/User/Preferences.sublime-settings" > /dev/null
 
 # Importar configuración de Sublime Merge
 echo -e "${D}${O}Importar configuración de Sublime Merge${F}"
+mkdir -p "$CONFIG/sublime-merge/Packages/User"
 curl -fsSL https://gist.github.com/mdanieltg/f415269ddcf22f3b06eaaf341aea9b49/raw \
 	| tee "$CONFIG/sublime-merge/Packages/User/Preferences.sublime-settings" > /dev/null
 
 # Importar configuración de VS Code
 echo -e "${D}${O}Importar configuración de VS Code${F}"
+mkdir -p "$CONFIG/Code/User"
 curl -fsSL https://gist.github.com/mdanieltg/dcd9678504da9137d45e92fa16a76df1/raw \
 	| tee "$CONFIG/Code/User/settings.json" > /dev/null
 
@@ -131,6 +134,7 @@ curl -fsSL https://gist.github.com/mdanieltg/ed2c2f10829db4f78b1473d6b990eeb7/ra
 
 # Importar configuración de Terminator
 echo -e "${D}${O}Importar configuración de Terminator${F}"
+mkdir -p "$CONFIG/terminator"
 curl -fsSL https://gist.github.com/mdanieltg/4eab7f25c2d334058e769952ca03f6af/raw \
 	| tee "$CONFIG/terminator/config" > /dev/null
 
@@ -139,7 +143,9 @@ curl -fsSL https://gist.github.com/mdanieltg/4eab7f25c2d334058e769952ca03f6af/ra
 
 ## Instalar Oh My Zsh
 echo -e "${D}${O}Instalar Oh My Zsh${F}"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
+
+echo -e "${D}${O}Instalar plugins${F}"
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
@@ -154,4 +160,4 @@ curl -fsSL https://raw.githubusercontent.com/mdanieltg/zsh-profile/master/zshrc-
 	| tee "$HOME/.zshrc" > /dev/null
 
 
-echo "¡Finalizado!"
+echo -e "\n¡Finalizado!"
