@@ -14,7 +14,7 @@ if [ $UID -eq 0 ]; then
 fi
 
 ## Configuración del sistema
-curl -fsSL https://raw.githubusercontent.com/mdanieltg/init/separate/system-settings.sh \
+wget -O - https://raw.githubusercontent.com/mdanieltg/init/separate/system-settings.sh \
 	| sudo USR=${USER} bash -
 
 ## Configuración del usuario
