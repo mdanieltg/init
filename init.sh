@@ -13,6 +13,8 @@ if [ $UID -eq 0 ]; then
 	exit 1
 fi
 
+sudo -v
+
 ## Configuración del sistema
 echo -e "\n${D}${O}Configuración del sistema${F}\n"
 wget -O - https://raw.githubusercontent.com/mdanieltg/init/separate/system-settings.sh \
