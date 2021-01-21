@@ -14,11 +14,12 @@ if [ $UID -eq 0 ]; then
 fi
 
 ## Configuración del sistema
+echo -e "\n${D}${O}Configuración del sistema${F}\n"
 wget -O - https://raw.githubusercontent.com/mdanieltg/init/separate/system-settings.sh \
 	| sudo USR=${USER} bash -
 
 ## Configuración del usuario
-echo -e "${D}${O}Configuraciones personales${F}"
+echo -e "\n\n${D}${O}Configuraciones personales${F}\n"
 
 # Importar configuración SSH
 echo -e "${D}${O}Importar configuración SSH${F}"
