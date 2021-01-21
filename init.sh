@@ -10,6 +10,7 @@ F='\033[0m'
 
 if [ $UID -eq 0 ]; then
 	echo -e "\033[0;31mNo debes ejecutarme con privilegios elevados o como root${F}"
+	exit 1
 fi
 
 ## Configuración del sistema
