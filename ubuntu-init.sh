@@ -11,11 +11,6 @@ systemctl stop unattended-upgrades.service
 echo -e "${D}${O}Actualizar la caché de paquetes${F}"
 apt update
 
-# Quitar Snap
-echo -e "${D}${O}Quitar Snap${F}"
-systemctl stop snapd
-apt autoremove --purge -y snapd
-
 # Instalar software base
 echo -e "${D}${O}Instalar software base${F}"
 apt install -y curl apt-transport-https
