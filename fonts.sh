@@ -1,20 +1,19 @@
 #!/bin/bash
-FONTS=
+FONTS="$HOME/.local/share/fonts"
 
 D='\033[0;33m'
 O='\033[0;34m'
 F='\033[0m'
 
 if [ $UID -eq 0 ]; then
+	FONTS="/usr/share/fonts"
 	echo "Instalando fuentes a nivel global (sistema)."
 	echo "Presione Ctrl+C para cancelar."
 	sleep 7
-	FONTS="/usr/share/fonts"
 else
 	echo "Instalando fuentes a nivel local (usuario)."
 	echo "Presione Ctrl+C para cancelar."
 	sleep 7
-	FONTS="$HOME/.local/share/fonts"
 fi
 echo "Continuando con la instalación...\n"
 
@@ -30,6 +29,7 @@ wget -O "$MLN/MesloLGS NF Bold Italic.ttf" "https://github.com/romkatv/powerleve
 
 # Hack
 wget -O /tmp/hack.tar.xz 'https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.tar.xz'
+mkdir -p "$FONTS/hack"
 tar -xvf /tmp/hack.tar.xz -C "$FONTS/hack"
 rm /tmp/hack.tar.xz
 
