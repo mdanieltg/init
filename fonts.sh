@@ -9,11 +9,11 @@ if [ $UID -eq 0 ]; then
 	FONTS="/usr/share/fonts"
 	echo "Instalando fuentes a nivel global (sistema)."
 	echo "Presione Ctrl+C para cancelar."
-	sleep 7
+	sleep 5
 else
 	echo "Instalando fuentes a nivel local (usuario)."
 	echo "Presione Ctrl+C para cancelar."
-	sleep 7
+	sleep 5
 fi
 echo "Continuando con la instalación...\n"
 
