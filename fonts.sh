@@ -15,7 +15,7 @@ else
 	echo "Presione Ctrl+C para cancelar."
 	sleep 5
 fi
-echo "Continuando con la instalación...\n"
+echo "Continuando con la instalación..."
 
 echo -e "\n${D}-> ${O}Instalando fuentes${F}"
 
@@ -39,6 +39,3 @@ wget -O /tmp/jb.zip 'https://download.jetbrains.com/fonts/JetBrainsMono-2.225.zi
 unzip -d /tmp/jb /tmp/jb.zip
 mv /tmp/jb/fonts/ttf "$FONTS/jetbrains-mono"
 rm -r /tmp/jb.zip /tmp/jb
-
-
-echo -e "\n${D}--|${O} ¡Finalizado!${D} |--${F}\n"
