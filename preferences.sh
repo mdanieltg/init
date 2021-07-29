@@ -114,23 +114,4 @@ curl -fsSL "https://raw.githubusercontent.com/mdanieltg/zsh-profile/master/zshrc
 	| tee "$HOME/.zshrc" >/dev/null
 
 
-# Importar fuentes
-# FONTS="$LOCAL/share/fonts"
-# echo -e "\n${D}${O}Instalar fuentes${F}"
-# mkdir -p "$FONTS/meslolgs-nf"
-# wget -O "$FONTS/meslolgs-nf/MesloLGS NF Regular.ttf" "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf"
-# wget -O "$FONTS/meslolgs-nf/MesloLGS NF Bold.ttf" "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf"
-# wget -O "$FONTS/meslolgs-nf/MesloLGS NF Italic.ttf" "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf"
-# wget -O "$FONTS/meslolgs-nf/MesloLGS NF Bold Italic.ttf" "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf"
-# wget -O /tmp/hack.tar.xz 'https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.tar.xz'
-# wget -O /tmp/jb.zip 'https://download.jetbrains.com/fonts/JetBrainsMono-2.225.zip'
-
-# tar -xvf /tmp/hack.tar.xz -C "$FONTS/hack"
-# unzip -d jb /tmp/jb.zip
-# mv jb/fonts/ttf "$FONTS/jetbrains-mono"
-
-# rm /tmp/hack.tar.xz /tmp/jb.zip
-
-
-
 echo -e "\n\033[0;33m--|${O} ¡Finalizado!\033[0;33m |--${F}\n"
