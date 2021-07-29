@@ -9,16 +9,10 @@ O='\033[0;34m'
 F='\033[0m'
 
 if [ $UID -eq 0 ]; then
-	echo -e "\033[0;31mNo debes ejecutarme con privilegios elevados o como root${F}"
+	echo -e "\033[0;31mNo ejecutar con privilegios elevados o como root${F}"
 	exit 1
 fi
 
-sudo -v
-
-## Configuración del sistema
-echo -e "\n${D}${O}Configuración del sistema${F}\n"
-wget -O - https://raw.githubusercontent.com/mdanieltg/init/separate/system-settings.sh \
-	| sudo USR=${USER} bash -
 
 ## Configuración del usuario
 echo -e "\n\n${D}${O}Configuraciones personales${F}\n"
