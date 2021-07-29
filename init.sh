@@ -41,9 +41,9 @@ ln -sf "$HOME/.vim/vimrc" "$HOME/.vimrc"
 
 # Importar configuración de Sublime Text
 echo -e "${D}${O}Importar configuración de Sublime Text${F}"
-mkdir -p "$CONFIG/sublime-text-3/Packages/User"
+mkdir -p "$CONFIG/sublime-text/Packages/User"
 curl -fsSL https://gist.github.com/mdanieltg/12793d5354d546d4a0b8d31f8cdc4a08/raw \
-	| tee "$CONFIG/sublime-text-3/Packages/User/Preferences.sublime-settings" >/dev/null
+	| tee "$CONFIG/sublime-text/Packages/User/Preferences.sublime-settings" >/dev/null
 
 # Importar configuración de Sublime Merge
 echo -e "${D}${O}Importar configuración de Sublime Merge${F}"
