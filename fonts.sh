@@ -36,9 +36,9 @@ rm /tmp/hack.tar.xz
 # JetBrains Mono
 wget -O /tmp/jb.zip 'https://download.jetbrains.com/fonts/JetBrainsMono-2.225.zip'
 
-unzip -d jb /tmp/jb.zip
-mv jb/fonts/ttf "$FONTS/jetbrains-mono"
-rm /tmp/jb.zip
+unzip -d /tmp/jb /tmp/jb.zip
+mv /tmp/jb/fonts/ttf "$FONTS/jetbrains-mono"
+rm -r /tmp/jb.zip /tmp/jb
 
 
 echo -e "\n${D}--|${O} ¡Finalizado!${D} |--${F}\n"
