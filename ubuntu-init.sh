@@ -5,8 +5,8 @@ F='\033[0m'
 
 # Detener el servicio de actualizaciones no supervisadas, ya que puede obstruir la instalación de los paquetes
 echo -e "${D}${O}Deshabilitar las actualizaciones no supervisadas${F}"
-echo "systemctl stop --now unattended-upgrades.service"
-systemctl stop --now unattended-upgrades.service
+echo "systemctl disable --now unattended-upgrades.service"
+systemctl disable --now unattended-upgrades.service
 
 # Refrescar la caché de paquetes
 echo -e "${D}${O}Actualizar la caché de paquetes${F}"
