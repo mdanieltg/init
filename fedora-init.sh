@@ -30,8 +30,8 @@ dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce
 
 # Instalar software restante
 echo -e "${D}${O}Instalar software restante${F}"
-echo "dnf install -y util-linux-user git-core zsh vim terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 nodejs npm sublime-text sublime-merge code 1password docker-ce docker-ce-cli"
-dnf install -y util-linux-user git-core zsh vim terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 nodejs npm sublime-text sublime-merge code 1password docker-ce docker-ce-cli
+echo "dnf install -y util-linux-user git-core zsh vim terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 nodejs npm sublime-text sublime-merge code chromium-browser 1password docker-ce docker-ce-cli"
+dnf install -y util-linux-user git-core zsh vim terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 nodejs npm sublime-text sublime-merge code chromium-browser 1password docker-ce docker-ce-cli
 
 # Actualizar sistema
 echo -e "${D}${O}Actualizar paquetes${F}"
