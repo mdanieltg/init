@@ -1,6 +1,8 @@
 #!/bin/bash
 CONFIG="$HOME/.config"
 LOCAL="$HOME/.local"
+LIB="$LOCAL/lib"
+BIN="$LOCAL/bin"
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 GIST="https://gist.github.com/mdanieltg"
 GH="https://github.com/mdanieltg"
@@ -17,6 +19,21 @@ fi
 
 ## Configuración del usuario
 echo -e "\n\033[0;33m--|${O} Configuraciones personales ${F}\033[0;33m|--"
+mkdir -p "$LIB" "$BIN"
+
+
+# Instalar Firefox Developer Edition
+echo -e "\n${D}${O}Instalar Firefox Developer Edition${F}"
+echo "wget -nv -O /tmp/firefox.tar.bz2 \
+\"https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=es-MX\""
+wget -nv -O /tmp/firefox.tar.bz2 \
+	"https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=es-MX"
+echo "tar -xf /tmp/firefox.tar.bz2 -C \"$LIB\""
+tar -xf /tmp/firefox.tar.bz2 -C "$LIB"
+echo "ln -sf \"$LIB/firefox/firefox\" \"$BIN/firefox-developer-edition\""
+ln -sf "$LIB/firefox/firefox" "$BIN/firefox-developer-edition"
+echo "rm /tmp/firefox.tar.bz2"
+rm /tmp/firefox.tar.bz2
 
 
 # Importar configuración SSH
