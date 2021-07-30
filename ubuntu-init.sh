@@ -24,11 +24,23 @@ echo "echo \"deb https://download.sublimetext.com/ apt/stable/\" \
 | tee /etc/apt/sources.list.d/sublime-text.list"
 echo "deb https://download.sublimetext.com/ apt/stable/" \
 	| tee /etc/apt/sources.list.d/sublime-text.list
+echo "echo \"deb [arch=amd64] https://downloads.1password.com/linux/debian/amd64 stable main\" \
+| tee /etc/apt/sources.list.d/1password.list"
+echo "deb [arch=amd64] https://downloads.1password.com/linux/debian/amd64 stable main" \
+	| tee /etc/apt/sources.list.d/1password.list
+echo "echo \"deb [arch=amd64] https://download.docker.com/linux/ubuntu \$(lsb_release -cs) stable\" \
+| tee /etc/apt/sources.list.d/docker.list > /dev/null"
+echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+	| tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 # Obtener llaves
 echo -e "${D}${O}Obtener llaves PGP${F}"
 echo "curl -sS \"https://download.sublimetext.com/sublimehq-pub.gpg\" | apt-key add -"
 curl -sS "https://download.sublimetext.com/sublimehq-pub.gpg" | apt-key add -
+echo "curl -sS \"https://downloads.1password.com/linux/keys/1password.asc\" | apt-key add -"
+curl -sS "https://downloads.1password.com/linux/keys/1password.asc" | apt-key add -
+echo "curl -fsSL \"https://download.docker.com/linux/ubuntu/gpg\" | apt-key add -"
+curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" | apt-key add -
 
 # Instalar el repositorio de .NET
 echo -e "${D}${O}Instalar el repositorio de .NET${F}"
