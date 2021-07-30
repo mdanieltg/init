@@ -37,3 +37,6 @@ wget -nv -O /tmp/jb.zip 'https://download.jetbrains.com/fonts/JetBrainsMono-2.22
 unzip -q /tmp/jb.zip -d /tmp/jb
 mv /tmp/jb/fonts/ttf "$FONTS/jetbrains-mono"
 rm -r /tmp/jb.zip /tmp/jb
+
+
+echo -e "\n\033[0;33m--|${O} ¡Finalizado!\033[0;33m |--${F}\n"

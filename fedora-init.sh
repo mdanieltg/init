@@ -47,3 +47,6 @@ chsh -s $(which zsh) $USR
 echo -e "${D}${O}Agregar usuario al grupo de Docker${F}"
 echo "usermod -aG docker $USR"
 usermod -aG docker $USR
+
+
+echo -e "\n\033[0;33m--|${O} ¡Finalizado!\033[0;33m |--${F}\n"
