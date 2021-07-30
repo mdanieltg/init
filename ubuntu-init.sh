@@ -13,8 +13,8 @@ echo -e "${D}${O}Actualizar la caché de paquetes${F}"
 echo "apt update"
 apt update
 
-# Instalar software base
-echo -e "${D}${O}Instalar software base${F}"
+# Instalar utilidades
+echo -e "${D}${O}Instalar utilidades${F}"
 echo "apt install -y curl apt-transport-https"
 apt install -y curl apt-transport-https
 
