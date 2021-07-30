@@ -16,7 +16,7 @@ if [ $UID -eq 0 ]; then
 fi
 
 ## Configuración del usuario
-echo -e "\033[0;33m--|${O} Configuraciones personales ${F}\033[0;33m|--\n"
+echo -e "\n\033[0;33m--|${O} Configuraciones personales ${F}\033[0;33m|--"
 
 
 # Importar configuración SSH
