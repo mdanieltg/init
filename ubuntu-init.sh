@@ -91,9 +91,9 @@ apt clean -y
 
 # Actualizar alternativas
 echo -e "${D}${O}Actualizar alternativas${F}"
-echo "update-alternatives --set editor $(which vim.basic)"
+echo "update-alternatives --set editor \$(which vim.basic)"
 update-alternatives --set editor $(which vim.basic)
-echo "update-alternatives --set x-terminal-emulator $(which terminator)"
+echo "update-alternatives --set x-terminal-emulator \$(which terminator)"
 update-alternatives --set x-terminal-emulator $(which terminator)
 
 # Cambiar shell a Zsh
