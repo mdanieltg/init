@@ -6,7 +6,7 @@ F='\033[0m'
 # Instalar software base
 echo -e "${D}${O}Instalar software base${F}"
 echo "dnf install -y curl dnf-plugins-core"
-apt install -y curl dnf-plugins-core
+dnf install -y curl dnf-plugins-core
 
 # Obtener llaves
 echo -e "${D}${O}Obtener llaves PGP${F}"
