@@ -108,9 +108,9 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/th
 
 # Configurar Zsh
 echo -e "\n${D}${O}Configurar Zsh${F}"
-echo "curl -fsSL 'https://raw.githubusercontent.com/mdanieltg/zsh-profile/master/zshrc-omz-p10k' \
+echo "curl -fsSL 'https://raw.githubusercontent.com/mdanieltg/zsh-profile/main/zshrc-omz-p10k' \
 | tee '$HOME/.zshrc' >/dev/null"
-curl -fsSL "https://raw.githubusercontent.com/mdanieltg/zsh-profile/master/zshrc-omz-p10k" \
+curl -fsSL "https://raw.githubusercontent.com/mdanieltg/zsh-profile/main/zshrc-omz-p10k" \
 	| tee "$HOME/.zshrc" >/dev/null
 
 
