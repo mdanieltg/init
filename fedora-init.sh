@@ -38,6 +38,16 @@ echo -e "${D}${O}Actualizar paquetes${F}"
 echo "dnf update -y"
 #dnf update -y
 
+# Habilitar Flatpak
+echo -e "${D}${O}Habilitar Flatpak${F}"
+echo "flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo"
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Instalar aplicaciones de Flatpak
+echo -e "${D}${O}Instalar aplicaciones de Flatpak${F}"
+echo "sudo -u $USR flatpak install -y flathub com.getpostman.Postman io.typora.Typora org.telegram.desktop com.spotify.Client"
+sudo -u $USR flatpak install -y flathub com.getpostman.Postman io.typora.Typora org.telegram.desktop com.spotify.Client
+
 # Cambiar shell a Zsh
 echo -e "${D}${O}Cambiar shell a Zsh${F}"
 echo "chsh -s \$(which zsh) $USR"
