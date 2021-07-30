@@ -38,11 +38,6 @@ echo -e "${D}${O}Actualizar paquetes${F}"
 echo "dnf update -y"
 #dnf update -y
 
-# Actualizar alternativas
-echo -e "${D}${O}Actualizar alternativas${F}"
-echo "alternatives --install editor \$(which vim.basic)"
-alternatives --install editor $(which vim.basic)
-
 # Cambiar shell a Zsh
 echo -e "${D}${O}Cambiar shell a Zsh${F}"
 echo "chsh -s \$(which zsh) $USR"
