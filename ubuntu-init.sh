@@ -18,6 +18,15 @@ echo -e "${D}${O}Instalar utilidades${F}"
 echo "apt install -y curl apt-transport-https"
 apt install -y curl apt-transport-https
 
+# Obtener llaves
+echo -e "${D}${O}Obtener llaves PGP${F}"
+echo "curl -sS \"https://download.sublimetext.com/sublimehq-pub.gpg\" | apt-key add -"
+curl -sS "https://download.sublimetext.com/sublimehq-pub.gpg" | apt-key add -
+echo "curl -sS \"https://downloads.1password.com/linux/keys/1password.asc\" | apt-key add -"
+curl -sS "https://downloads.1password.com/linux/keys/1password.asc" | apt-key add -
+echo "curl -fsSL \"https://download.docker.com/linux/ubuntu/gpg\" | apt-key add -"
+curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" | apt-key add -
+
 # Agregar fuentes a /etc/apt/sources.list.d
 echo -e "${D}${O}Agregar fuentes a /etc/apt/sources.list.d${F}"
 echo "echo \"deb https://download.sublimetext.com/ apt/stable/\" \
@@ -32,15 +41,6 @@ echo "echo \"deb [arch=amd64] https://download.docker.com/linux/ubuntu \$(lsb_re
 | tee /etc/apt/sources.list.d/docker.list > /dev/null"
 echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
 	| tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-# Obtener llaves
-echo -e "${D}${O}Obtener llaves PGP${F}"
-echo "curl -sS \"https://download.sublimetext.com/sublimehq-pub.gpg\" | apt-key add -"
-curl -sS "https://download.sublimetext.com/sublimehq-pub.gpg" | apt-key add -
-echo "curl -sS \"https://downloads.1password.com/linux/keys/1password.asc\" | apt-key add -"
-curl -sS "https://downloads.1password.com/linux/keys/1password.asc" | apt-key add -
-echo "curl -fsSL \"https://download.docker.com/linux/ubuntu/gpg\" | apt-key add -"
-curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" | apt-key add -
 
 # Instalar el repositorio de .NET
 echo -e "${D}${O}Instalar el repositorio de .NET${F}"
