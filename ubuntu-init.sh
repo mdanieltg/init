@@ -112,3 +112,8 @@ update-alternatives --set x-terminal-emulator $(which terminator)
 echo -e "${D}${O}Cambiar shell a Zsh${F}"
 echo "chsh -s \$(which zsh) $USR"
 chsh -s $(which zsh) $USR
+
+# Agregar usuario al grupo de Docker
+echo -e "${D}${O}Agregar usuario al grupo de Docker${F}"
+echo "usermod -aG docker $USR"
+usermod -aG docker $USR
