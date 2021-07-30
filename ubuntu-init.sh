@@ -44,8 +44,8 @@ echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -c
 
 # Instalar el repositorio de .NET
 echo -e "${D}${O}Instalar el repositorio de .NET${F}"
-echo "wget \"https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb\""
-wget "https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb"
+echo "wget -nv \"https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb\""
+wget -nv "https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb"
 echo "dpkg -i packages-microsoft-prod.deb"
 dpkg -i packages-microsoft-prod.deb
 echo "rm packages-microsoft-prod.deb"
@@ -68,8 +68,8 @@ apt install -y git zsh vim build-essential terminator firefox firefox-locale-es 
 
 # Instalar Minecraft
 echo -e "${D}${O}Instalar Minecraft${F}"
-echo "wget \"https://launcher.mojang.com/download/Minecraft.deb\""
-wget "https://launcher.mojang.com/download/Minecraft.deb"
+echo "wget -nv \"https://launcher.mojang.com/download/Minecraft.deb\""
+wget -nv "https://launcher.mojang.com/download/Minecraft.deb"
 echo "dpkg -i Minecraft.deb"
 dpkg -i Minecraft.deb
 echo "rm Minecraft.deb"
@@ -77,8 +77,8 @@ rm Minecraft.deb
 
 # Instalar VS Code
 echo -e "${D}${O}Instalar VS Code${F}"
-echo "wget -O vscode.deb \"https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64\""
-wget -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+echo "wget -nv -O vscode.deb \"https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64\""
+wget -nv -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
 echo "dpkg -i vscode.deb"
 dpkg -i vscode.deb
 echo "rm vscode.deb"

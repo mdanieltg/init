@@ -50,20 +50,20 @@ GH="https://raw.githubusercontent.com/mdanieltg/init/main"
 # Distribución - software base
 if [ ! -z $D ]; then
 	sudo -v
-	wget -O - "$GH/$D-init.sh" | sudo USR=${USER} bash -
+	wget -nv -O - "$GH/$D-init.sh" | sudo USR=${USER} bash -
 fi
 
 # Fuentes
 if [ ! -z $T ]; then
 	if [[ "$T" == "global" ]]; then
 		sudo -v
-		wget -O - "$GH/fonts.sh" | sudo bash -
+		wget -nv -O - "$GH/fonts.sh" | sudo bash -
 	else
-		wget -O - "$GH/fonts.sh" | bash -
+		wget -nv -O - "$GH/fonts.sh" | bash -
 	fi
 fi
 
 # Preferencias de usuario
 if [ ! -z $P ]; then
-	wget -O - "$GH/preferences.sh" | bash -
+	wget -nv -O - "$GH/preferences.sh" | bash -
 fi
