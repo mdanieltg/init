@@ -84,10 +84,10 @@ apt upgrade -y
 
 # Limpiar
 echo -e "${D}${O}Limpiar${F}"
-echo "apt autoremove --purge"
-apt autoremove --purge
-echo "apt clean"
-apt clean
+echo "apt autoremove --purge -y"
+apt autoremove --purge -y
+echo "apt clean -y"
+apt clean -y
 
 # Actualizar alternativas
 echo -e "${D}${O}Actualizar alternativas${F}"
