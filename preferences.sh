@@ -106,6 +106,22 @@ echo -e "\n${D}${O}Instalar p10k${F}"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
 
 
+# Instalar NVM
+echo -e "\n${D}${O}Instalar NVM${F}"
+echo "curl -o- \"https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh\" | bash"
+curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh" | bash
+
+
+# Instalar Nodejs 14
+echo "nvm install 14"
+nvm install 14
+echo "nvm alias default 14"
+nvm alias default 14
+echo "nvm use 14"
+nvm use 14
+echo "npm install -g npm yarn @angular/cli"
+npm install -g npm yarn @angular/cli
+
 # Configurar Zsh
 echo -e "\n${D}${O}Configurar Zsh${F}"
 echo "curl -fsSL 'https://raw.githubusercontent.com/mdanieltg/zsh-profile/main/zshrc-omz-p10k' \
