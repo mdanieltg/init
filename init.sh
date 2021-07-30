@@ -1,6 +1,6 @@
 #!/bin/bash
-# S: Sistema operativo
-# T: Tipografías globales o locales
+# D: Distribución objetivo
+# T: Tipografías
 # P: Preferencias de usuario
 
 if [ $UID -eq 0 ]; then
@@ -14,11 +14,13 @@ for arg in "$@"; do
 		echo "init.sh"
 		echo "Instala el software base, así como tipografías y preferencias de usuario en una instalación 'fresca' de Ubuntu, Fedora o derivados."
 		echo -e "\nSintaxis:"
-		echo -e " ./init.sh [-t|-T] [-p] <ubuntu|fedora>\n"
+		echo -e " ./init.sh [-t|-T] [-p] [-d=distro]\n"
 		echo "Opciones:"
-		echo " -t | -T      Instalar fuentes localmente (t), globalmente (T) o no instalar."
+		echo " -t | -T      Instalar tipografías localmente (t) o globalmente (T)."
 		echo " -p           Configurar las preferencias de usuario."
-		echo -e "\nSitio web: https://github.com/mdanieltg/init"
+		echo " -d=distro    Distribución a configurar. Posibles valores: ubuntu y fedora"
+		echo -e "\nSe debe elegir al menos una opción de las tres posibles, y se pueden combinar entre sí.\n"
+		echo "Sitio web: https://github.com/mdanieltg/init"
 		exit 0;
 	elif [[ "$arg" == "-t" ]]; then
 		T="local"
@@ -26,10 +28,10 @@ for arg in "$@"; do
 		T="global"
 	elif [[ "$arg" == "-p" ]]; then
 		P=true
-	elif [[ "$arg" == "ubuntu" ]]; then
-		S="ubuntu"
-	elif [[ "$arg" == "fedora" ]]; then
-		S="fedora"
+	elif [[ "$arg" == "-d=ubuntu" ]]; then
+		D="ubuntu"
+	elif [[ "$arg" == "-d=fedora" ]]; then
+		D="fedora"
 	else
 		echo "Error: no se reconoce el argumento '$arg'"
 		echo "Ejecutar ./init.sh -h para visualizar las opciones válidas."
@@ -37,31 +39,31 @@ for arg in "$@"; do
 	fi
 done
 
-
-if [ -z $S ]; then
-	echo "Opción inválida."
-	echo "Las opciones válidas son ubuntu o fedora. Ej:"
-	echo " \$ ./init.sh ubuntu"
+if [ -z $D ] && [ -z $P ] && [ -z $T ]; then
+	echo "Error: se debe pasar al menos un argumento."
+	echo "Ejecutar ./init.sh -h para visualizar las opciones válidas."
 	exit 3
-else
+fi
+
+GH="https://raw.githubusercontent.com/mdanieltg/init/main"
+
+# Distribución - software base
+if [ ! -z $D ]; then
 	sudo -v
+	wget -O - "$GH/$D-init.sh" | sudo USR=${USER} bash -
+fi
 
-	# Sistema operativo
-	wget -O - "https://raw.githubusercontent.com/mdanieltg/init/main/$S-init.sh" \
-		| sudo USR=${USER} bash -
-
-	# Preferencias de usuario
-	if [ ! -z $P ]; then
-		wget -O - "https://raw.githubusercontent.com/mdanieltg/init/main/preferences.sh" | bash -
+# Fuentes
+if [ ! -z $T ]; then
+	if [[ "$T" == "global" ]]; then
+		sudo -v
+		wget -O - "$GH/fonts.sh" | sudo bash -
+	else
+		wget -O - "$GH/fonts.sh" | bash -
 	fi
+fi
 
-	# Fuentes
-	if [ ! -z $T ]; then
-		if [[ "$T" == "global" ]]; then
-			sudo -v
-			wget -O - "https://raw.githubusercontent.com/mdanieltg/init/main/fonts.sh" | sudo bash -
-		else
-			wget -O - "https://raw.githubusercontent.com/mdanieltg/init/main/fonts.sh" | bash -
-		fi
-	fi
+# Preferencias de usuario
+if [ ! -z $P ]; then
+	wget -O - "$GH/preferences.sh" | bash -
 fi
