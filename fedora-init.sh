@@ -36,7 +36,7 @@ dnf install -y git-core zsh vim terminator firefox firefox-locale-es thunderbird
 # Actualizar sistema
 echo -e "${D}${O}Actualizar paquetes${F}"
 echo "dnf update -y"
-dnf update -y
+#dnf update -y
 
 # Actualizar alternativas
 echo -e "${D}${O}Actualizar alternativas${F}"
