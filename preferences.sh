@@ -108,19 +108,9 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/th
 
 # Instalar NVM
 echo -e "\n${D}${O}Instalar NVM${F}"
-echo "curl -o- \"https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh\" | bash"
-curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh" | bash
+echo "curl -o- \"https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh\" | XDG_CONFIG_HOME=\"$CONFIG\" bash"
+curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh" | XDG_CONFIG_HOME="$CONFIG" bash
 
-
-# Instalar Nodejs 14
-echo "nvm install 14"
-nvm install 14
-echo "nvm alias default 14"
-nvm alias default 14
-echo "nvm use 14"
-nvm use 14
-echo "npm install -g npm yarn @angular/cli"
-npm install -g npm yarn @angular/cli
 
 # Configurar Zsh
 echo -e "\n${D}${O}Configurar Zsh${F}"
@@ -128,6 +118,14 @@ echo "curl -fsSL 'https://raw.githubusercontent.com/mdanieltg/zsh-profile/main/z
 | tee '$HOME/.zshrc' >/dev/null"
 curl -fsSL "https://raw.githubusercontent.com/mdanieltg/zsh-profile/main/zshrc-omz-p10k" \
 	| tee "$HOME/.zshrc" >/dev/null
+
+
+# Instalar Nodejs 14
+echo -e "\n${D}${O}Instalar Node${F}"
+echo "zsh -i -c \"nvm install 14\""
+zsh -i -c "nvm install 14"
+echo "zsh -i -c \"npm install -g npm yarn\""
+zsh -i -c "npm install -g npm yarn"
 
 
 echo -e "\n\033[0;33m--|${O} ¡Finalizado!\033[0;33m |--${F}\n"
