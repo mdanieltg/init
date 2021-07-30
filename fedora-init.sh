@@ -17,8 +17,8 @@ rpm -v --import https://packages.microsoft.com/keys/microsoft.asc
 echo "rpm -v --import https://downloads.1password.com/linux/keys/1password.asc"
 rpm -v --import https://downloads.1password.com/linux/keys/1password.asc
 
-# Agregar fuentes a /etc/apt/sources.list.d
-echo -e "${D}${O}Agregar fuentes a /etc/apt/sources.list.d${F}"
+# Agregar repositorios
+echo -e "${D}${O}Agregar repositorios${F}"
 echo "dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo"
 dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
 echo "dnf config-manager --add-repo https://raw.githubusercontent.com/mdanieltg/init/develop/fedora-repos/1password.repo"
