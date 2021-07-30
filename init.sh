@@ -14,5 +14,5 @@ else
 	exit 2
 fi
 
-curl -fsSL "https://raw.githubusercontent.com/mdanieltg/init/main/$SYS-init.sh" \
+wget -O - "https://raw.githubusercontent.com/mdanieltg/init/main/$SYS-init.sh" \
 	| sudo USR=${USER} bash -
