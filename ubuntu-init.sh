@@ -63,8 +63,8 @@ apt update
 
 # Instalar software restante
 echo -e "${D}${O}Instalar software restante${F}"
-echo "apt install -y git zsh vim build-essential terminator firefox firefox-locale-es thunderbird thunderbird-locale-es dotnet-sdk-3.1 dotnet-sdk-5.0 nodejs sublime-text sublime-merge 1password docker-ce docker-ce-cli containerd.io"
-apt install -y git zsh vim build-essential terminator firefox firefox-locale-es thunderbird thunderbird-locale-es dotnet-sdk-3.1 dotnet-sdk-5.0 nodejs sublime-text sublime-merge 1password docker-ce docker-ce-cli containerd.io
+echo "apt install -y git zsh vim build-essential terminator firefox firefox-locale-es thunderbird thunderbird-locale-es dotnet-sdk-3.1 dotnet-sdk-5.0 nodejs sublime-text sublime-merge 1password docker-ce docker-ce-cli"
+apt install -y git zsh vim build-essential terminator firefox firefox-locale-es thunderbird thunderbird-locale-es dotnet-sdk-3.1 dotnet-sdk-5.0 nodejs sublime-text sublime-merge 1password docker-ce docker-ce-cli
 
 # Instalar Minecraft
 echo -e "${D}${O}Instalar Minecraft${F}"
