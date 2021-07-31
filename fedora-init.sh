@@ -52,8 +52,8 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 # Instalar aplicaciones de Flatpak
 echo -e "${D}${O}Instalar aplicaciones de Flatpak${F}"
-echo "sudo -u $USR flatpak install -y flathub com.getpostman.Postman org.chromium.Chromium io.typora.Typora org.telegram.desktop com.spotify.Client"
-sudo -u $USR flatpak install -y flathub com.getpostman.Postman org.chromium.Chromium io.typora.Typora org.telegram.desktop com.spotify.Client
+echo "sudo -u $USR flatpak install --noninteractive flathub com.getpostman.Postman org.chromium.Chromium io.typora.Typora org.telegram.desktop com.spotify.Client"
+sudo -u $USR flatpak install --noninteractive flathub com.getpostman.Postman org.chromium.Chromium io.typora.Typora org.telegram.desktop com.spotify.Client
 
 # Cambiar shell a Zsh
 echo -e "${D}${O}Cambiar shell a Zsh${F}"
