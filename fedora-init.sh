@@ -30,11 +30,13 @@ echo "dnf config-manager --add-repo https://raw.githubusercontent.com/mdanieltg/
 dnf config-manager --add-repo https://raw.githubusercontent.com/mdanieltg/init/develop/fedora-repos/code.repo
 echo "dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo"
 dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+echo "dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo"
+dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
 
 # Instalar software restante
 echo -e "${D}${O}Instalar software restante${F}"
-echo "dnf install -y util-linux-user git-core zsh vim terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge code 1password docker-ce docker-ce-cli"
-dnf install -y util-linux-user git-core zsh vim terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge code 1password docker-ce docker-ce-cli
+echo "dnf install -y util-linux-user git-core zsh vim gh terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge code 1password docker-ce docker-ce-cli"
+dnf install -y util-linux-user git-core zsh vim gh terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge code 1password docker-ce docker-ce-cli
 
 # Habilitar servicio de Docker
 echo -e "${D}${O}Habilitar servicio de Docker${F}"

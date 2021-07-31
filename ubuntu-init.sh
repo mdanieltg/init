@@ -31,21 +31,30 @@ echo "curl -sS \"https://downloads.1password.com/linux/keys/1password.asc\" | ap
 curl -sS "https://downloads.1password.com/linux/keys/1password.asc" | apt-key add -
 echo "curl -fsSL \"https://download.docker.com/linux/ubuntu/gpg\" | apt-key add -"
 curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" | apt-key add -
+echo "curl -fsSL \"https://cli.github.com/packages/githubcli-archive-keyring.gpg\" \
+| gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg"
+curl -fsSL "https://cli.github.com/packages/githubcli-archive-keyring.gpg" \
+	| gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
 
 # Agregar fuentes a /etc/apt/sources.list.d
+SRC="/etc/apt/sources.list.d"
 echo -e "${D}${O}Agregar fuentes a /etc/apt/sources.list.d${F}"
 echo "echo \"deb https://download.sublimetext.com/ apt/stable/\" \
-| tee /etc/apt/sources.list.d/sublime-text.list"
+| tee $SRC/sublime-text.list"
 echo "deb https://download.sublimetext.com/ apt/stable/" \
-	| tee /etc/apt/sources.list.d/sublime-text.list
+	| tee $SRC/sublime-text.list
 echo "echo \"deb [arch=amd64] https://downloads.1password.com/linux/debian/amd64 stable main\" \
-| tee /etc/apt/sources.list.d/1password.list"
+| tee $SRC/1password.list"
 echo "deb [arch=amd64] https://downloads.1password.com/linux/debian/amd64 stable main" \
-	| tee /etc/apt/sources.list.d/1password.list
+	| tee $SRC/1password.list
 echo "echo \"deb [arch=amd64] https://download.docker.com/linux/ubuntu \$(lsb_release -cs) stable\" \
-| tee /etc/apt/sources.list.d/docker.list > /dev/null"
+| tee $SRC/docker.list > /dev/null"
 echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
-	| tee /etc/apt/sources.list.d/docker.list > /dev/null
+	| tee $SRC/docker.list > /dev/null
+echo "echo \"deb [arch=\$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main\" \
+| sudo tee $SRC/github-cli.list > /dev/null"
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
+	| sudo tee $SRC/github-cli.list > /dev/null
 
 # Instalar el repositorio de .NET
 echo -e "${D}${O}Instalar el repositorio de .NET${F}"
@@ -67,8 +76,8 @@ snap install postman chromium typora telegram-desktop spotify
 
 # Instalar software restante
 echo -e "${D}${O}Instalar software restante${F}"
-echo "apt install -y git zsh vim build-essential terminator firefox firefox-locale-es thunderbird thunderbird-locale-es dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge 1password docker-ce docker-ce-cli"
-apt install -y git zsh vim build-essential terminator firefox firefox-locale-es thunderbird thunderbird-locale-es dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge 1password docker-ce docker-ce-cli
+echo "apt install -y git zsh vim build-essential gh terminator firefox firefox-locale-es thunderbird thunderbird-locale-es dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge 1password docker-ce docker-ce-cli"
+apt install -y git zsh vim build-essential gh terminator firefox firefox-locale-es thunderbird thunderbird-locale-es dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge 1password docker-ce docker-ce-cli
 
 # Instalar Minecraft
 echo -e "${D}${O}Instalar Minecraft${F}"
