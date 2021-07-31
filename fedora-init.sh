@@ -30,8 +30,8 @@ dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce
 
 # Instalar software restante
 echo -e "${D}${O}Instalar software restante${F}"
-echo "dnf install -y util-linux-user git-core zsh vim terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 nodejs npm sublime-text sublime-merge code chromium-browser 1password docker-ce docker-ce-cli"
-dnf install -y util-linux-user git-core zsh vim terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 nodejs npm sublime-text sublime-merge code chromium-browser 1password docker-ce docker-ce-cli
+echo "dnf install -y util-linux-user git-core zsh vim terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 nodejs npm sublime-text sublime-merge code 1password docker-ce docker-ce-cli"
+dnf install -y util-linux-user git-core zsh vim terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 nodejs npm sublime-text sublime-merge code 1password docker-ce docker-ce-cli
 
 # Actualizar sistema
 echo -e "${D}${O}Actualizar paquetes${F}"
@@ -45,8 +45,8 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 # Instalar aplicaciones de Flatpak
 echo -e "${D}${O}Instalar aplicaciones de Flatpak${F}"
-echo "sudo -u $USR flatpak install -y flathub com.getpostman.Postman io.typora.Typora org.telegram.desktop com.spotify.Client"
-sudo -u $USR flatpak install -y flathub com.getpostman.Postman io.typora.Typora org.telegram.desktop com.spotify.Client
+echo "sudo -u $USR flatpak install -y flathub com.getpostman.Postman org.chromium.Chromium io.typora.Typora org.telegram.desktop com.spotify.Client"
+sudo -u $USR flatpak install -y flathub com.getpostman.Postman org.chromium.Chromium io.typora.Typora org.telegram.desktop com.spotify.Client
 
 # Cambiar shell a Zsh
 echo -e "${D}${O}Cambiar shell a Zsh${F}"
