@@ -12,7 +12,7 @@ else
 	MSG="local (usuario)"
 fi
 
-echo -e "\n\033[0;33m--|${O} Instalando fuentes a nivel $MSG ${F}\033[0;33m|--"
+echo -e "\n\033[0;33m--|${O} Instalando tipografías a nivel $MSG ${F}\033[0;33m|--"
 
 
 # MesloLGS NF

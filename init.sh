@@ -47,7 +47,7 @@ fi
 
 GH="https://raw.githubusercontent.com/mdanieltg/init/main"
 
-# Fuentes
+# Tipografías
 if [ ! -z $T ]; then
 	if [[ "$T" == "global" ]]; then
 		sudo -v
