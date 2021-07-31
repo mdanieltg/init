@@ -3,6 +3,9 @@ D='\n\033[0;33m-> '
 O='\033[0;34m'
 F='\033[0m'
 
+echo -e "\n\033[0;33m--|${O} Instalación base $MSG ${F}\033[0;33m|--"
+
+
 # Instalar software base
 echo -e "${D}${O}Instalar software base${F}"
 echo "dnf install -y curl dnf-plugins-core"

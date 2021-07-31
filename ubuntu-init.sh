@@ -3,6 +3,9 @@ D='\n\033[0;33m-> '
 O='\033[0;34m'
 F='\033[0m'
 
+echo -e "\n\033[0;33m--|${O} Instalación base $MSG ${F}\033[0;33m|--"
+
+
 # Detener el servicio de actualizaciones no supervisadas, ya que puede obstruir la instalación de los paquetes
 echo -e "${D}${O}Deshabilitar las actualizaciones no supervisadas${F}"
 echo "systemctl disable --now unattended-upgrades.service"
