@@ -36,16 +36,6 @@ echo "rm /tmp/firefox.tar.bz2"
 rm /tmp/firefox.tar.bz2
 
 
-# Importar configuración SSH
-echo -e "\n${D}${O}Importar configuración SSH${F}"
-echo "mkdir -m 700 '$HOME/.ssh'"
-mkdir -m 700 "$HOME/.ssh"
-echo "curl -fsSL '$GIST/0fb696bcb58718b28a03b4dcf1f8c2dd/raw' \
-| tee -a '$HOME/.ssh/config' >/dev/null"
-curl -fsSL "$GIST/0fb696bcb58718b28a03b4dcf1f8c2dd/raw" \
-	| tee -a "$HOME/.ssh/config" >/dev/null
-
-
 # Importar configuración de Git
 echo -e "\n${D}${O}Importar configuración de Git${F}"
 echo "curl -fsSL '$GIST/bc983d81cdcbf1340f345eb3fb87d8b7/raw' \
