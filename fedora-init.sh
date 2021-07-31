@@ -48,7 +48,7 @@ systemctl enable containerd.service
 # Actualizar sistema
 echo -e "${D}${O}Actualizar paquetes${F}"
 echo "dnf update -y"
-#dnf update -y
+dnf update -y
 
 # Habilitar Flatpak
 echo -e "${D}${O}Habilitar Flatpak${F}"

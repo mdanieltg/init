@@ -112,7 +112,7 @@ systemctl enable containerd.service
 # Actualizar sistema
 echo -e "${D}${O}Actualizar paquetes${F}"
 echo "apt upgrade -y"
-#apt upgrade -y
+apt upgrade -y
 
 # Limpiar
 echo -e "${D}${O}Limpiar${F}"
