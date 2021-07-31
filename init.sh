@@ -47,12 +47,6 @@ fi
 
 GH="https://raw.githubusercontent.com/mdanieltg/init/main"
 
-# Distribución - software base
-if [ ! -z $D ]; then
-	sudo -v
-	wget -nv -O - "$GH/$D-init.sh" | sudo USR=${USER} bash -
-fi
-
 # Fuentes
 if [ ! -z $T ]; then
 	if [[ "$T" == "global" ]]; then
@@ -61,6 +55,12 @@ if [ ! -z $T ]; then
 	else
 		wget -nv -O - "$GH/fonts.sh" | bash -
 	fi
+fi
+
+# Distribución - software base
+if [ ! -z $D ]; then
+	sudo -v
+	wget -nv -O - "$GH/$D-init.sh" | sudo USR=${USER} bash -
 fi
 
 # Preferencias de usuario
