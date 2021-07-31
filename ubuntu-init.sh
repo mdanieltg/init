@@ -7,6 +7,8 @@ F='\033[0m'
 echo -e "${D}${O}Deshabilitar las actualizaciones no supervisadas${F}"
 echo "systemctl disable --now unattended-upgrades.service"
 systemctl disable --now unattended-upgrades.service
+echo "apt remove -y unattended-upgrades"
+apt remove -y unattended-upgrades
 
 # Refrescar la caché de paquetes
 echo -e "${D}${O}Actualizar la caché de paquetes${F}"
