@@ -33,6 +33,13 @@ echo -e "${D}${O}Instalar software restante${F}"
 echo "dnf install -y util-linux-user git-core zsh vim terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge code 1password docker-ce docker-ce-cli"
 dnf install -y util-linux-user git-core zsh vim terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge code 1password docker-ce docker-ce-cli
 
+# Habilitar servicio de Docker
+echo -e "${D}${O}Habilitar servicio de Docker${F}"
+echo "systemctl enable docker.service"
+systemctl enable docker.service
+echo "systemctl enable containerd.service"
+systemctl enable containerd.service
+
 # Actualizar sistema
 echo -e "${D}${O}Actualizar paquetes${F}"
 echo "dnf update -y"

@@ -90,6 +90,13 @@ echo -e "${D}${O}Arreglar dependencias incumplidas (si existen)${F}"
 echo "apt install -f -y"
 apt install -f -y
 
+# Habilitar servicio de Docker
+echo -e "${D}${O}Habilitar servicio de Docker${F}"
+echo "systemctl enable docker.service"
+systemctl enable docker.service
+echo "systemctl enable containerd.service"
+systemctl enable containerd.service
+
 # Actualizar sistema
 echo -e "${D}${O}Actualizar paquetes${F}"
 echo "apt upgrade -y"
