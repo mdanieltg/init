@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 FONTS="$HOME/.local/share/fonts"
 
 D='\033[0;33m'
