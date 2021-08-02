@@ -51,19 +51,19 @@ GH="https://github.com/mdanieltg/init/raw/main"
 if [ ! -z $T ]; then
 	if [[ "$T" == "global" ]]; then
 		sudo -v
-		wget -nv -O - "$GH/fonts.sh" | sudo bash -
+		wget -nv -O - "$GH/fonts.sh" | sudo bash
 	else
-		wget -nv -O - "$GH/fonts.sh" | bash -
+		wget -nv -O - "$GH/fonts.sh" | bash
 	fi
 fi
 
 # Distribución - software base
 if [ ! -z $D ]; then
 	sudo -v
-	wget -nv -O - "$GH/$D-init.sh" | sudo USR=${USER} bash -
+	wget -nv -O - "$GH/$D-init.sh" | sudo USR=${USER} bash
 fi
 
 # Preferencias de usuario
 if [ ! -z $P ]; then
-	wget -nv -O - "$GH/preferences.sh" | bash -
+	wget -nv -O - "$GH/preferences.sh" | bash
 fi
