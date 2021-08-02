@@ -38,7 +38,7 @@ curl -fsSL "$GIST/bc983d81cdcbf1340f345eb3fb87d8b7/raw" | sh -
 
 # Importar configuración de Vim
 echo -e "\n${D}${O}Importar configuración de Vim${F}"
-git clone $GH/vim-profile.git "$HOME/.vim"
+git clone -q $GH/vim-profile.git "$HOME/.vim"
 ln -sf "$HOME/.vim/vimrc" "$HOME/.vimrc"
 
 
@@ -81,13 +81,13 @@ echo -e "\n${D}${O}Instalar Oh My Zsh${F}"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 
 echo -e "\n${D}${O}Instalar plugins para OMZ${F}"
-git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+git clone -q https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+git clone -q https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 
 
 # Instalar p10k
 echo -e "\n${D}${O}Instalar p10k${F}"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
+git clone -q --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
 
 
 # Instalar NVM
