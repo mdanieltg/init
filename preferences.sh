@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 CONFIG="$HOME/.config"
 LIB="$HOME/.local/lib"
 BIN="$HOME/.local/bin"
