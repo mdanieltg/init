@@ -1,10 +1,8 @@
 #!/bin/bash -x
 CONFIG="$HOME/.config"
-LOCAL="$HOME/.local"
-LIB="$LOCAL/lib"
-BIN="$LOCAL/bin"
+LIB="$HOME/.local/lib"
+BIN="$HOME/.local/bin"
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
-GIST="https://gist.github.com/mdanieltg"
 GH="https://github.com/mdanieltg"
 
 B='\033[1;36m'
@@ -33,7 +31,7 @@ rm /tmp/firefox.tar.bz2
 
 # Importar configuración de Git
 echo -e "\n${D}${O}Importar configuración de Git${F}"
-curl -fsSL "$GIST/bc983d81cdcbf1340f345eb3fb87d8b7/raw" | sh -
+curl -fsSL "$GH/config/raw/main/gitconfig" | tee "$HOME/.gitconfig" >/dev/null
 
 
 # Importar configuración de Vim
@@ -46,7 +44,7 @@ ln -sf "$HOME/.vim/vimrc" "$HOME/.vimrc"
 SUBL="$CONFIG/sublime-text/Packages/User"
 echo -e "\n${D}${O}Importar configuración de Sublime Text${F}"
 mkdir -p "$SUBL"
-curl -fsSL "$GIST/12793d5354d546d4a0b8d31f8cdc4a08/raw" \
+curl -fsSL "$GH/config/raw/main/sublime-settings.json" \
 	| tee "$SUBL/Preferences.sublime-settings" >/dev/null
 
 
@@ -54,7 +52,7 @@ curl -fsSL "$GIST/12793d5354d546d4a0b8d31f8cdc4a08/raw" \
 SMERGE="$CONFIG/sublime-merge/Packages/User"
 echo -e "\n${D}${O}Importar configuración de Sublime Merge${F}"
 mkdir -p "$SMERGE"
-curl -fsSL "$GIST/f415269ddcf22f3b06eaaf341aea9b49/raw" \
+curl -fsSL "$GH/config/raw/main/sublimemerge-settings.json" \
 	| tee "$SMERGE/Preferences.sublime-settings" >/dev/null
 
 
@@ -62,9 +60,9 @@ curl -fsSL "$GIST/f415269ddcf22f3b06eaaf341aea9b49/raw" \
 VSCODE="$CONFIG/Code/User"
 echo -e "\n${D}${O}Importar configuración de VS Code${F}"
 mkdir -p "$VSCODE"
-curl -fsSL "$GIST/dcd9678504da9137d45e92fa16a76df1/raw" \
+curl -fsSL "$GH/config/raw/main/vscode-settings.json" \
 	| tee "$VSCODE/settings.json" >/dev/null
-curl -fsSL "$GIST/ed2c2f10829db4f78b1473d6b990eeb7/raw" \
+curl -fsSL "$GH/config/raw/main/vscode-keybindings.json" \
 	| tee "$VSCODE/keybindings.json" >/dev/null
 
 
@@ -72,7 +70,7 @@ curl -fsSL "$GIST/ed2c2f10829db4f78b1473d6b990eeb7/raw" \
 TERM="$CONFIG/terminator"
 echo -e "\n${D}${O}Importar configuración de Terminator${F}"
 mkdir -p "$TERM"
-curl -fsSL "$GIST/4eab7f25c2d334058e769952ca03f6af/raw" \
+curl -fsSL "$GH/config/raw/main/terminator-config" \
 	| tee "$TERM/config" >/dev/null
 
 
@@ -97,7 +95,7 @@ curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh" | XDG
 
 # Configurar Zsh
 echo -e "\n${D}${O}Configurar Zsh${F}"
-curl -fsSL "https://raw.githubusercontent.com/mdanieltg/zsh-profile/main/zshrc-omz-p10k" \
+curl -fsSL "$GH/zsh-profile/raw/main/zshrc-omz-p10k" \
 	| tee "$HOME/.zshrc" >/dev/null
 
 

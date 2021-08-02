@@ -19,8 +19,8 @@ rpm -v --import https://downloads.1password.com/linux/keys/1password.asc
 # Agregar repositorios
 echo -e "${D}${O}Agregar repositorios${F}"
 dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
-dnf config-manager --add-repo https://raw.githubusercontent.com/mdanieltg/init/main/fedora-repos/1password.repo
-dnf config-manager --add-repo https://raw.githubusercontent.com/mdanieltg/init/main/fedora-repos/code.repo
+dnf config-manager --add-repo https://github.com/mdanieltg/init/raw/main/fedora-repos/1password.repo
+dnf config-manager --add-repo https://github.com/mdanieltg/init/raw/main/fedora-repos/code.repo
 dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
 

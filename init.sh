@@ -45,7 +45,7 @@ if [ -z $D ] && [ -z $P ] && [ -z $T ]; then
 	exit 3
 fi
 
-GH="https://raw.githubusercontent.com/mdanieltg/init/main"
+GH="https://github.com/mdanieltg/init/raw/main"
 
 # Tipografías
 if [ ! -z $T ]; then
