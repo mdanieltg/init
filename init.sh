@@ -58,21 +58,21 @@ fonts() {
 	local REMOTE="https://github.com/romkatv/powerlevel10k-media/raw/master"
 	local MLN="$FONTS/meslolgs-nf"
 	sudo -u $US mkdir -p "$MLN"
-	sudo -u $US wget -nv -O "$MLN/MesloLGS NF Regular.ttf" "$REMOTE/MesloLGS%20NF%20Regular.ttf"
-	sudo -u $US wget -nv -O "$MLN/MesloLGS NF Bold.ttf" "$REMOTE/MesloLGS%20NF%20Bold.ttf"
-	sudo -u $US wget -nv -O "$MLN/MesloLGS NF Italic.ttf" "$REMOTE/MesloLGS%20NF%20Italic.ttf"
-	sudo -u $US wget -nv -O "$MLN/MesloLGS NF Bold Italic.ttf" "$REMOTE/MesloLGS%20NF%20Bold%20Italic.ttf"
+	sudo -u $US wget -qO "$MLN/MesloLGS NF Regular.ttf" "$REMOTE/MesloLGS%20NF%20Regular.ttf"
+	sudo -u $US wget -qO "$MLN/MesloLGS NF Bold.ttf" "$REMOTE/MesloLGS%20NF%20Bold.ttf"
+	sudo -u $US wget -qO "$MLN/MesloLGS NF Italic.ttf" "$REMOTE/MesloLGS%20NF%20Italic.ttf"
+	sudo -u $US wget -qO "$MLN/MesloLGS NF Bold Italic.ttf" "$REMOTE/MesloLGS%20NF%20Bold%20Italic.ttf"
 
 	# Hack
 	print_activity "Hack"
-	wget -nv -O /tmp/hack.tar.xz https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.tar.xz
+	wget -qO /tmp/hack.tar.xz https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.tar.xz
 	sudo -u $US mkdir -p "$FONTS/hack"
 	sudo -u $US tar -xf /tmp/hack.tar.xz -C "$FONTS/hack"
 	rm /tmp/hack.tar.xz
 
 	# JetBrains Mono
 	print_activity "JetBrains Mono"
-	wget -nv -O /tmp/jb.zip https://download.jetbrains.com/fonts/JetBrainsMono-2.225.zip
+	wget -qO /tmp/jb.zip https://download.jetbrains.com/fonts/JetBrainsMono-2.225.zip
 	sudo -u $US unzip -qj /tmp/jb.zip "fonts/ttf/*" -d "$FONTS/jetbrains-mono"
 	rm -r /tmp/jb.zip
 
@@ -96,7 +96,7 @@ preferences() {
 
 	# Instalar Firefox Developer Edition
 	print_activity "Instalar Firefox Developer Edition"
-	wget -nv -O /tmp/firefox.tar.bz2 \
+	wget -qO /tmp/firefox.tar.bz2 \
 		"https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=es-MX"
 	sudo -u $U tar -xf /tmp/firefox.tar.bz2 -C "$LIB"
 	sudo -u $U ln -sf "$LIB/firefox/firefox" "$BIN/firefox-developer-edition"
@@ -277,7 +277,7 @@ ubuntu_install() {
 
 	# Instalar el repositorio de .NET
 	print_activity "Instalar el repositorio de .NET"
-	wget -nv "https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb"
+	wget -q "https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb"
 	dpkg -i packages-microsoft-prod.deb
 	rm packages-microsoft-prod.deb
 
@@ -295,7 +295,7 @@ ubuntu_install() {
 
 	# Instalar VS Code
 	print_activity "Instalar VS Code"
-	wget -nv -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+	wget -qO vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
 	dpkg -i vscode.deb
 	rm vscode.deb
 
