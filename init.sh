@@ -293,12 +293,6 @@ ubuntu_install() {
 	print_activity "Instalar software restante"
 	apt install -y git zsh vim build-essential gh terminator firefox firefox-locale-es thunderbird thunderbird-locale-es dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge 1password docker-ce docker-ce-cli
 
-	# Instalar Minecraft
-	print_activity "Instalar Minecraft"
-	wget -nv "https://launcher.mojang.com/download/Minecraft.deb"
-	dpkg -i Minecraft.deb
-	rm Minecraft.deb
-
 	# Instalar VS Code
 	print_activity "Instalar VS Code"
 	wget -nv -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
