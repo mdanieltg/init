@@ -293,6 +293,11 @@ ubuntu_install() {
 	print_activity "Instalar software restante"
 	apt-get -qy install git zsh vim build-essential gh terminator firefox firefox-locale-es thunderbird thunderbird-locale-es snap dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge 1password docker-ce docker-ce-cli
 
+	# Habilitar servicio de Docker
+	print_activity "Habilitar servicio de Docker"
+	systemctl enable docker.service
+	systemctl enable containerd.service
+
 	# Instalar Snaps
 	print_activity "Instalar Snaps"
 	snap install postman chromium typora telegram-desktop spotify
@@ -306,11 +311,6 @@ ubuntu_install() {
 	# Arreglar dependencias incumplidas
 	print_activity "Arreglar dependencias incumplidas (si existen)"
 	apt-get -qyf install
-
-	# Habilitar servicio de Docker
-	print_activity "Habilitar servicio de Docker"
-	systemctl enable docker.service
-	systemctl enable containerd.service
 
 	# Actualizar sistema
 	print_activity "Actualizar paquetes"
