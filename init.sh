@@ -23,17 +23,21 @@ print_error() {
 }
 
 print_help() {
-	echo "init.sh"
-	echo "Instala el software base, así como tipografías y preferencias de usuario en una instalación 'fresca' de Ubuntu, Fedora o derivados."
-	echo -e "\nSintaxis:"
-	echo " sudo U=\$USER ./init.sh [-t|-T] [-p] [-d=distro]"
-	echo -e " sudo U=\$USER bash init.sh [-t|-T] [-p] [-d=distro]\n"
-	echo "Opciones:"
-	echo " -t | -T      Instalar tipografías localmente (t) o globalmente (T)."
-	echo " -p           Configurar las preferencias de usuario."
-	echo " -d=distro    Distribución a configurar. Posibles valores: ubuntu y fedora"
-	echo -e "\nSe debe elegir al menos una opción de las tres posibles, y se pueden combinar entre sí.\n"
-	echo "Sitio web: https://github.com/mdanieltg/init"
+	echo "init.sh
+Instala el software base, así como tipografías y preferencias de usuario en una instalación 'fresca' de Ubuntu, Fedora o derivados.
+
+Sintaxis:
+ sudo U=\$USER ./init.sh [-t|-T] [-p] [-d=distro]
+ sudo U=\$USER bash init.sh [-t|-T] [-p] [-d=distro]
+
+Opciones:
+ -t | -T      Instalar tipografías localmente (t) o globalmente (T).
+ -p           Configurar las preferencias de usuario.
+ -d=distro    Distribución a configurar. Posibles valores: ubuntu y fedora
+
+Se debe elegir al menos una opción de las tres posibles, y se pueden combinar entre sí.
+
+Sitio web: https://github.com/mdanieltg/init"
 }
 
 fonts() {
