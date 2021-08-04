@@ -289,13 +289,13 @@ ubuntu_install() {
 	print_activity "Actualizar la caché de paquetes nuevamente"
 	apt-get update
 
+	# Instalar software restante
+	print_activity "Instalar software restante"
+	apt-get -qy install git zsh vim build-essential gh terminator firefox firefox-locale-es thunderbird thunderbird-locale-es snap dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge 1password docker-ce docker-ce-cli
+
 	# Instalar Snaps
 	print_activity "Instalar Snaps"
 	snap install postman chromium typora telegram-desktop spotify
-
-	# Instalar software restante
-	print_activity "Instalar software restante"
-	apt-get -qy install git zsh vim build-essential gh terminator firefox firefox-locale-es thunderbird thunderbird-locale-es dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge 1password docker-ce docker-ce-cli
 
 	# Instalar VS Code
 	print_activity "Instalar VS Code"
