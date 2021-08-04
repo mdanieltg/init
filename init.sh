@@ -195,25 +195,25 @@ fedora_install() {
 
 	# Instalar software base
 	print_activity "Instalar software base"
-	dnf install -y curl dnf-plugins-core
+	dnf -q install -y curl dnf-plugins-core
 
 	# Obtener llaves
 	print_activity "Obtener llaves PGP"
-	rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
-	rpm -v --import https://packages.microsoft.com/keys/microsoft.asc
-	rpm -v --import https://downloads.1password.com/linux/keys/1password.asc
+	rpm --quiet --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+	rpm --quiet --import https://packages.microsoft.com/keys/microsoft.asc
+	rpm --quiet --import https://downloads.1password.com/linux/keys/1password.asc
 
 	# Agregar repositorios
 	print_activity "Agregar repositorios"
-	dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
-	dnf config-manager --add-repo https://github.com/mdanieltg/init/raw/main/fedora-repos/1password.repo
-	dnf config-manager --add-repo https://github.com/mdanieltg/init/raw/main/fedora-repos/code.repo
-	dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-	dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+	dnf -q config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+	dnf -q config-manager --add-repo https://github.com/mdanieltg/init/raw/main/fedora-repos/1password.repo
+	dnf -q config-manager --add-repo https://github.com/mdanieltg/init/raw/main/fedora-repos/code.repo
+	dnf -q config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+	dnf -q config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
 
 	# Instalar software restante
 	print_activity "Instalar software restante"
-	dnf install -y util-linux-user git-core zsh vim gh terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge code 1password docker-ce docker-ce-cli
+	dnf -q install -y util-linux-user git-core zsh vim gh terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge code 1password docker-ce docker-ce-cli
 
 	# Habilitar servicio de Docker
 	print_activity "Habilitar servicio de Docker"
@@ -222,7 +222,7 @@ fedora_install() {
 
 	# Actualizar sistema
 	print_activity "Actualizar paquetes"
-	dnf update -y
+	dnf -q update -y
 
 	# Habilitar Flatpak
 	print_activity "Habilitar Flatpak"
@@ -230,7 +230,7 @@ fedora_install() {
 
 	# Instalar aplicaciones de Flatpak
 	print_activity "Instalar aplicaciones de Flatpak"
-	sudo -u $U flatpak install --noninteractive flathub com.getpostman.Postman org.chromium.Chromium io.typora.Typora org.telegram.desktop com.spotify.Client
+	sudo -u $U flatpak --user install -y --noninteractive flathub com.getpostman.Postman org.chromium.Chromium io.typora.Typora org.telegram.desktop com.spotify.Client
 
 	# Cambiar shell a Zsh
 	print_activity "Cambiar shell a Zsh"
@@ -249,15 +249,15 @@ ubuntu_install() {
 	# Detener el servicio de actualizaciones no supervisadas, ya que puede obstruir la instalación de los paquetes
 	print_activity "Deshabilitar las actualizaciones no supervisadas"
 	systemctl disable --now unattended-upgrades.service
-	apt remove -y unattended-upgrades
+	apt-get -qy remove unattended-upgrades
 
 	# Refrescar la caché de paquetes
 	print_activity "Actualizar la caché de paquetes"
-	apt update
+	apt-get -q update
 
 	# Instalar utilidades
 	print_activity "Instalar utilidades"
-	apt install -y curl apt-transport-https
+	apt-get -qy install curl apt-transport-https
 
 	# Obtener llaves
 	print_activity "Obtener llaves PGP"
@@ -265,19 +265,19 @@ ubuntu_install() {
 	curl -sS "https://downloads.1password.com/linux/keys/1password.asc" | apt-key add -
 	curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" | apt-key add -
 	curl -fsSL "https://cli.github.com/packages/githubcli-archive-keyring.gpg" \
-		| gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+		| gpg -q --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
 
 	# Agregar fuentes a /etc/apt/sources.list.d
 	SRC="/etc/apt/sources.list.d"
 	print_activity "Agregar fuentes a /etc/apt/sources.list.d"
 	echo "deb https://download.sublimetext.com/ apt/stable/" \
-		| tee $SRC/sublime-text.list
+		| tee $SRC/sublime-text.list >/dev/null
 	echo "deb [arch=amd64] https://downloads.1password.com/linux/debian/amd64 stable main" \
-		| tee $SRC/1password.list
+		| tee $SRC/1password.list >/dev/null
 	echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
-		| tee $SRC/docker.list > /dev/null
+		| tee $SRC/docker.list >/dev/null
 	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
-		| sudo tee $SRC/github-cli.list > /dev/null
+		| sudo tee $SRC/github-cli.list >/dev/null
 
 	# Instalar el repositorio de .NET
 	print_activity "Instalar el repositorio de .NET"
@@ -287,7 +287,7 @@ ubuntu_install() {
 
 	# Refrescar la caché de paquetes
 	print_activity "Actualizar la caché de paquetes nuevamente"
-	apt update
+	apt-get update
 
 	# Instalar Snaps
 	print_activity "Instalar Snaps"
@@ -295,7 +295,7 @@ ubuntu_install() {
 
 	# Instalar software restante
 	print_activity "Instalar software restante"
-	apt install -y git zsh vim build-essential gh terminator firefox firefox-locale-es thunderbird thunderbird-locale-es dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge 1password docker-ce docker-ce-cli
+	apt-get -qy install git zsh vim build-essential gh terminator firefox firefox-locale-es thunderbird thunderbird-locale-es dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge 1password docker-ce docker-ce-cli
 
 	# Instalar VS Code
 	print_activity "Instalar VS Code"
@@ -305,7 +305,7 @@ ubuntu_install() {
 
 	# Arreglar dependencias incumplidas
 	print_activity "Arreglar dependencias incumplidas (si existen)"
-	apt install -f -y
+	apt-get -qyf install
 
 	# Habilitar servicio de Docker
 	print_activity "Habilitar servicio de Docker"
@@ -314,12 +314,12 @@ ubuntu_install() {
 
 	# Actualizar sistema
 	print_activity "Actualizar paquetes"
-	apt upgrade -y
+	apt-get -qy upgrade
 
 	# Limpiar
 	print_activity "Limpiar"
-	apt autoremove --purge -y
-	apt clean -y
+	apt-get -qy autoremove --purge
+	apt-get -qy clean
 
 	# Actualizar alternativas
 	print_activity "Actualizar alternativas"
