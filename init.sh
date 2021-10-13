@@ -262,7 +262,8 @@ ubuntu_install() {
 
 	# Instalar utilidades
 	print_activity "Instalar utilidades"
-	apt-get -qy install curl apt-transport-https
+	apt-get -qy install curl apt-transport-https ca-certificates
+	apt-mark auto ca-certificates
 
 	# Obtener llaves
 	print_activity "Obtener llaves PGP"
