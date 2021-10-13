@@ -235,7 +235,7 @@ fedora_install() {
 
 	# Instalar aplicaciones de Flatpak
 	print_activity "Instalar aplicaciones de Flatpak"
-	sudo -u $U flatpak install --user --noninteractive -y flathub com.getpostman.Postman org.chromium.Chromium io.typora.Typora org.telegram.desktop com.spotify.Client
+	sudo -u $U flatpak install --user --noninteractive -y flathub com.getpostman.Postman io.typora.Typora org.telegram.desktop com.spotify.Client
 
 	# Cambiar shell a Zsh
 	print_activity "Cambiar shell a Zsh"
@@ -305,7 +305,7 @@ ubuntu_install() {
 
 	# Instalar Snaps
 	print_activity "Instalar Snaps"
-	snap install postman chromium typora telegram-desktop spotify
+	snap install postman typora telegram-desktop spotify
 
 	# Instalar VS Code
 	print_activity "Instalar VS Code"
