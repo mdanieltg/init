@@ -1,6 +1,6 @@
 # Init
 
-Script de Bash para configurar una instalación nueva de [Ubuntu](https://ubuntu.com/download/desktop) o [Fedora](https://getfedora.org/es/workstation/download/).
+Script de Bash para configurar una instalación nueva de [Ubuntu](https://ubuntu.com/download/desktop), [Fedora](https://getfedora.org/es/workstation/download/), o cualquier sistema derivado que utilice APT o DNF como administrador de paquetes.
 
 ## Utilización
 
@@ -38,7 +38,8 @@ Para consultar las opciones disponibles:
 - Instalar el tema [Powerlevel10k](https://github.com/romkatv/powerlevel10k#powerlevel10k).
 - Instalar [NVM](https://github.com/nvm-sh/nvm).
   - Instalar [Node.js](https://nodejs.org/) versión 14 (LTS).
-- Agregar mi usuario al grupo `docker`.
+  - Instalar [Yarn](https://yarnpkg.com/).
+- Agregar el usuario $U al grupo `docker`.
 - Instalar Firefox Developer Edition.
 
 ## Renuncia de reponsabilidad
