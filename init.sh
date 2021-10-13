@@ -124,6 +124,10 @@ preferences() {
 	sudo -u $U mkdir -p "$SUBL"
 	curl -fsSL "$GH/config/raw/main/sublime-settings.json" \
 		| sudo -u $U tee "$SUBL/Preferences.sublime-settings" >/dev/null
+	curl -fsSL "$GH/config/raw/main/sublime-keybindings.json" \
+		| sudo -u $U tee "$SUBL/Default (Linux).sublime-keymap" >/dev/null
+	curl -fsSL "$GH/config/raw/main/CSS3-sublime-settings.json" \
+		| sudo -u $U tee "$SUBL/CSS3.sublime-settings" >/dev/null
 
 
 	# Importar configuración de Sublime Merge
