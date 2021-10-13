@@ -235,7 +235,7 @@ fedora_install() {
 
 	# Instalar aplicaciones de Flatpak
 	print_activity "Instalar aplicaciones de Flatpak"
-	sudo -u $U flatpak install --user --noninteractive -y flathub com.getpostman.Postman io.typora.Typora org.telegram.desktop com.spotify.Client
+	sudo -u $U flatpak install --noninteractive -y flathub com.getpostman.Postman io.typora.Typora org.telegram.desktop com.spotify.Client
 
 	# Cambiar shell a Zsh
 	print_activity "Cambiar shell a Zsh"
