@@ -27,15 +27,16 @@ print_help() {
 Instala el software base, así como tipografías y preferencias de usuario en una instalación 'fresca' de Ubuntu, Fedora o derivados.
 
 Sintaxis:
- sudo U=\$USER ./init.sh [-t|-T] [-p] [-d=distro]
- sudo U=\$USER bash init.sh [-t|-T] [-p] [-d=distro]
+ sudo U=\$USER ./init.sh [-t|-T] [-p] [-d=distro] [-u]
+ sudo U=\$USER bash init.sh [-t|-T] [-p] [-d=distro] [-u]
 
 Opciones:
- -t | -T      Instalar tipografías localmente (t) o globalmente (T).
+ -d=distro    Distribución a configurar. Posibles valores: ubuntu y fedora.
  -p           Configurar las preferencias de usuario.
- -d=distro    Distribución a configurar. Posibles valores: ubuntu y fedora
+ -t | -T      Instalar tipografías localmente (t) o globalmente (T).
+ -u           No actualizar paquetes.
 
-Se debe elegir al menos una opción de las tres posibles, y se pueden combinar entre sí.
+Se debe elegir al menos una opción de las tres primeras, y se pueden combinar entre sí.
 
 Sitio web: https://github.com/mdanieltg/init"
 }
@@ -226,8 +227,10 @@ fedora_install() {
 	systemctl enable containerd.service
 
 	# Actualizar sistema
-	print_activity "Actualizar paquetes"
-	dnf -q update -y
+	if [ ! -v NOUP ]; then
+		print_activity "Actualizar paquetes"
+		dnf -q update -y
+	fi
 
 	# Habilitar Flatpak
 	print_activity "Habilitar Flatpak"
@@ -235,7 +238,7 @@ fedora_install() {
 
 	# Instalar aplicaciones de Flatpak
 	print_activity "Instalar aplicaciones de Flatpak"
-	sudo -u $U flatpak install --user --noninteractive -y flathub com.getpostman.Postman io.typora.Typora org.telegram.desktop com.spotify.Client
+	sudo -u $U flatpak install --noninteractive -y flathub com.getpostman.Postman io.typora.Typora org.telegram.desktop com.spotify.Client
 
 	# Cambiar shell a Zsh
 	print_activity "Cambiar shell a Zsh"
@@ -262,7 +265,8 @@ ubuntu_install() {
 
 	# Instalar utilidades
 	print_activity "Instalar utilidades"
-	apt-get -qy install curl apt-transport-https
+	apt-get -qy install curl apt-transport-https ca-certificates
+	apt-mark auto ca-certificates
 
 	# Obtener llaves
 	print_activity "Obtener llaves PGP"
@@ -296,7 +300,7 @@ ubuntu_install() {
 
 	# Instalar software restante
 	print_activity "Instalar software restante"
-	apt-get -qy install git zsh vim build-essential gh terminator firefox firefox-locale-es thunderbird thunderbird-locale-es snap dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge 1password docker-ce docker-ce-cli
+	apt-get -qy install git zsh vim build-essential gh terminator firefox thunderbird snap dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge 1password docker-ce docker-ce-cli
 
 	# Habilitar servicio de Docker
 	print_activity "Habilitar servicio de Docker"
@@ -317,9 +321,12 @@ ubuntu_install() {
 	print_activity "Arreglar dependencias incumplidas (si existen)"
 	apt-get -qyf install
 
+
 	# Actualizar sistema
-	print_activity "Actualizar paquetes"
-	apt-get -qy upgrade
+	if [ ! -v NOUP ]; then
+		print_activity "Actualizar paquetes"
+		apt-get -qy upgrade
+	fi
 
 	# Limpiar
 	print_activity "Limpiar"
@@ -348,16 +355,18 @@ for arg in "$@"; do
 	if [[ "$arg" == "-h" ]]; then
 		print_help
 		exit 0;
-	elif [[ "$arg" == "-t" ]]; then
-		TIPO="local"
-	elif [[ "$arg" == "-T" ]]; then
-		TIPO="global"
-	elif [[ "$arg" == "-p" ]]; then
-		PREF=true
 	elif [[ "$arg" == "-d=ubuntu" ]]; then
 		DIST="ubuntu"
 	elif [[ "$arg" == "-d=fedora" ]]; then
 		DIST="fedora"
+	elif [[ "$arg" == "-p" ]]; then
+		PREF=true
+	elif [[ "$arg" == "-t" ]]; then
+		TIPO="local"
+	elif [[ "$arg" == "-T" ]]; then
+		TIPO="global"
+	elif [[ "$arg" == "-u" ]]; then
+		NOUP=true
 	else
 		print_error "No se reconoce el argumento '$arg'.\n"
 		exit 2;
