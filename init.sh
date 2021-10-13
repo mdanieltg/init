@@ -187,8 +187,9 @@ preferences() {
 
 	# Instalar Nodejs 14
 	print_activity "Instalar Node"
-	sudo -u $U zsh -i -c "nvm install 14"
-	sudo -u $U zsh -i -c "npm install -g npm yarn"
+	sudo -u $U zsh -i -c "nvm install stable"
+	sudo -u $U zsh -i -c "nvm alias default stable"
+	sudo -u $U zsh -i -c "npm install -g npm@latest yarn"
 
 
 	print_end
