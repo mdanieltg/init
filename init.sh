@@ -300,7 +300,7 @@ ubuntu_install() {
 
 	# Instalar software restante
 	print_activity "Instalar software restante"
-	apt-get -qy install git zsh vim build-essential gh terminator firefox firefox-locale-es thunderbird thunderbird-locale-es snap dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge 1password docker-ce docker-ce-cli
+	apt-get -qy install git zsh vim build-essential gh terminator firefox thunderbird snap dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge 1password docker-ce docker-ce-cli
 
 	# Habilitar servicio de Docker
 	print_activity "Habilitar servicio de Docker"
