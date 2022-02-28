@@ -99,15 +99,6 @@ preferences() {
 	sudo -u $U mkdir -p "$LIB" "$BIN"
 
 
-	# Instalar Firefox Developer Edition
-	print_activity "Instalar Firefox Developer Edition"
-	wget -qO /tmp/firefox.tar.bz2 \
-		"https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=es-MX"
-	sudo -u $U tar -xf /tmp/firefox.tar.bz2 -C "$LIB"
-	sudo -u $U ln -sf "$LIB/firefox/firefox" "$BIN/firefox-developer-edition"
-	rm /tmp/firefox.tar.bz2
-
-
 	# Importar configuración de Git
 	print_activity "Importar configuración de Git"
 	curl -fsSL "$GH/config/raw/main/gitconfig" | sudo -u $U tee "$HOME/.gitconfig" >/dev/null
