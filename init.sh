@@ -210,7 +210,7 @@ fedora_install() {
 
 	# Instalar software restante
 	print_activity "Instalar software restante"
-	dnf -q install -y util-linux-user git-core zsh vim gh terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-5.0 sublime-text sublime-merge code 1password docker-ce docker-ce-cli
+	dnf -q install -y util-linux-user git-core zsh vim gh terminator firefox thunderbird dotnet-sdk-3.1 dotnet-sdk-6.0 sublime-text sublime-merge code 1password docker-ce docker-ce-cli
 
 	# Habilitar servicio de Docker
 	print_activity "Habilitar servicio de Docker"
